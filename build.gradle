@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application { mainClassName = 'Main' }
+
+group 'ru.jeb'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://mobile.maven.couchbase.com/maven2/dev/' }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+    implementation "com.couchbase.lite:couchbase-lite-java-ee:2.8.3"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
